@@ -30,8 +30,9 @@ pip install -r requirements.txt
 4. Use `app.py` to serve the model and make predictions via a web interface.
 
 
-# Model Comparison: Logistic Regression, XGBoost, Random Forest, KNN, Naive Bayes
+## Comparison
 
+**Model Comparison: Logistic Regression, XGBoost, Random Forest, KNN, Naive Bayes**
 In the 'ChurnPrediction.ipynb' notebook, I compared the performance of five different machine learning algorithms for predicting customer churn. The algorithms under comparison are:
 
 1. **Logistic Regression**
