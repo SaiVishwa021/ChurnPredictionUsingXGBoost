@@ -29,7 +29,6 @@ pip install -r requirements.txt
 3. Run the `xgb.py` script to train the model.
 4. Use `app.py` to serve the model and make predictions via a web interface.
 
-## Comparison
 
 # Model Comparison: Logistic Regression, XGBoost, Random Forest, KNN, Naive Bayes
 
