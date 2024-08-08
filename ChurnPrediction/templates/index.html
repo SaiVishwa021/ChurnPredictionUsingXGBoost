@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Churn Prediction</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #a9e8fc, #e6f5fa);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px 50px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 600px;
+            max-width: 90%;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        label {
+            margin-bottom: 5px;
+            color: #555;
+            width: 100%;
+            font-weight: bold;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            width: 45%;
+        }
+        .form-group.full-width {
+            width: 100%;
+        }
+        input[type="text"],
+        input[type="number"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        input[type="submit"] {
+            padding: 15px 30px;
+            background-color: #61d4fa;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            align-self: center;
+        }
+        input[type="submit"]:hover {
+            background-color: #2575fc;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #dff0d8;
+            border: 1px solid #d0e9c6;
+            border-radius: 5px;
+            color: #3c763d;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .form-group {
+                width: 100%;
+            }
+            input[type="submit"] {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Churn Prediction Form</h1>
+        <form action="/" method="post">
+            <div class="form-group">
+                <label for="CustomerId">Customer Id:</label>
+                <input type="text" id="CustomerId" name="CustomerId">
+            </div>
+            <div class="form-group">
+                <label for="Surname">Surname:</label>
+                <input type="text" id="Surname" name="Surname">
+            </div>
+            <div class="form-group">
+                <label for="CreditScore">Credit Score:</label>
+                <input type="number" step="any" id="CreditScore" name="CreditScore" required>
+            </div>
+            <div class="form-group">
+                <label for="Geography">Country:</label>
+                <input type="text" id="Geography" name="Geography" required>
+            </div>
+            <div class="form-group">
+                <label for="Gender">Gender:</label>
+                <input type="text" id="Gender" name="Gender" required>
+            </div>
+            <div class="form-group">
+                <label for="Age">Age:</label>
+                <input type="number" id="Age" name="Age" required>
+            </div>
+            <div class="form-group">
+                <label for="Tenure">Tenure:</label>
+                <input type="number" id="Tenure" name="Tenure" required>
+            </div>
+            <div class="form-group">
+                <label for="Balance">Balance:</label>
+                <input type="number" step="any" id="Balance" name="Balance" required>
+            </div>
+            <div class="form-group">
+                <label for="NumOfProducts">Number of Bank Products:</label>
+                <input type="number" id="NumOfProducts" name="NumOfProducts" required>
+            </div>
+            <div class="form-group">
+                <label for="HasCrCard">Has Credit Card:</label>
+                <input type="number" id="HasCrCard" name="HasCrCard">
+            </div>
+            <div class="form-group">
+                <label for="IsActiveMember">Is Active Member:</label>
+                <input type="number" id="IsActiveMember" name="IsActiveMember" required>
+            </div>
+            <div class="form-group">
+                <label for="EstimatedSalary">Estimated Salary:</label>
+                <input type="number" step="any" id="EstimatedSalary" name="EstimatedSalary" required>
+            </div>
+            <div class="form-group full-width">
+                <input type="submit" value="Predict">
+            </div>
+        </form>
+
+        <!-- Result section -->
+        {% if prediction is not none %}
+        <div class="result">
+            <h2>Prediction Result:</h2>
+            <p>The customer {% if prediction == 0 %}will{% else %}won't{% endif %} stop using the bank's service.</p>
+        </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
